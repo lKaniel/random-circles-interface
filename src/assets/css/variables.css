@@ -1,0 +1,26 @@
+:root{
+  font-size: 0.82vw;
+
+  --light-color: #FFFFFA;
+  --dark-color: #515052;
+  --dark-color-20: #333138;
+  --accent-color: #998FC7;
+  --accent1-color: #F87060;
+  --accent2-color: #709255;
+
+  --scrollbar-track: #DEDAE0;
+  --scrollbar-track-hover: #85858a;
+  --scrollbar-thumb: #525156;
+}
+
+@media screen and (max-width: 1950px) {
+  :root {
+    font-size: 16px;
+  }
+}
+
+@media screen and (max-width: 1500px) {
+  :root {
+    font-size: 1vw;
+  }
+}

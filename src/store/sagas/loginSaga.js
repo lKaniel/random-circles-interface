@@ -1,28 +1,32 @@
-import {fork, takeEvery} from "redux-saga/effects";
-import {LOGIN_START} from "../actions/actionTypes";
-import axios from "../../util/axios";
+import {fork, put, takeEvery} from "redux-saga/effects";
+import {LOGIN_START, GOOGLE_LOGIN_SUCCESS} from "../actions/actionTypes";
+import {loginError, googleLoginSuccess, loginSuccess} from "../actions/loginActions";
+import {getToken, getUser} from "../../util/loginApi";
 
-const getToken = async (googleIdToken)=>{
-    return (await axios.post("/api/user", googleIdToken))?.headers?.authorization
-}
-
-const getUser = async (token)=>{
-    return await axios.get("/api/user/profile", {
-        headers: {
-            Authorization: token
+function* tokenWatcher() {
+    yield takeEvery(LOGIN_START, function* ({googleIdToken}) {
+        let apiToken = ""
+        try {
+            apiToken = yield getToken(googleIdToken)
+            yield put(googleLoginSuccess(apiToken))
+        } catch (e) {
+            yield put(loginError(e))
         }
     })
 }
 
-function* loginWatcher() {
-    yield takeEvery(LOGIN_START, function*({googleIdToken}) {
-        const apiToken = yield getToken(googleIdToken)
-        console.log(apiToken)
-        const user = yield getUser(apiToken)
-        console.log(user)
+function* userWatcher() {
+    yield takeEvery(GOOGLE_LOGIN_SUCCESS, function* ({token}) {
+        try {
+            const user = yield getUser(token)
+            yield put(loginSuccess(user.data))
+        } catch (e) {
+            yield put(loginError(e))
+        }
     })
 }
 
 export function* loginSaga() {
-    yield fork(loginWatcher);
+    yield fork(tokenWatcher);
+    yield fork(userWatcher);
 }

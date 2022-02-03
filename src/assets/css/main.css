@@ -1,31 +1,29 @@
-@import "../../assets/css/variables";
-
 body {
   font-family: 'Comfortaa', sans-serif;
-  color: $dark-color;
+  color: var(--dark-color);
   overflow-x: hidden;
 }
 
 html {
   scroll-behavior: smooth;
   scrollbar-width: normal;
-  scrollbar-color: $scrollbar-thumb $scrollbar-track;
+  scrollbar-color: var(--dark-color) var(--light-color);
 }
 
 body::-webkit-scrollbar {
-  width: 15px;
+  width: 0.9375rem;
 }
 
 body::-webkit-scrollbar-thumb {
-  background: $scrollbar-thumb;
+  background: var(--dark-color);
   border-radius: .5rem;
-  border: .2rem solid $scrollbar-track;
+  border: .2rem solid var(--light-color);
 }
 
 body::-webkit-scrollbar-thumb:hover {
-  background: $scrollbar-track-hover;
+  background: var(--accent1-color);
 }
 
 body::-webkit-scrollbar-track {
-  background: $scrollbar-track;
+  background: var(--light-color);
 }

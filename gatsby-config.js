@@ -17,8 +17,7 @@ module.exports = {
         },
         `gatsby-plugin-image`,
         `gatsby-plugin-sharp`,
-        `gatsby-transformer-sharp`, // Needed for dynamic images,
-        `gatsby-plugin-sass`,
+        `gatsby-transformer-sharp`,
         `gatsby-plugin-react-helmet`,
         {
             resolve: `gatsby-plugin-webfonts`,
@@ -27,7 +26,7 @@ module.exports = {
                     google: [
                         {
                             family: "Comfortaa",
-                            variants: ["400", "700"],
+                            variants: ["300", "400", "700", "900"],
                             subsets: ["latin", "cyrillic"]
                         },
                     ],
@@ -37,7 +36,7 @@ module.exports = {
         {
             resolve: `gatsby-plugin-layout`,
             options: {
-                component: require.resolve(`./src/components/Layout/Layout`),
+                component: require.resolve(`./src/components/Layout`),
             },
         },
     ],
