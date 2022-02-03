@@ -9,4 +9,10 @@
   align-items: center;
   justify-content: center;
   background: $light-color-0;
+  background: #1C2826;
+
+  .Layout {
+    width: $container-width;
+    max-width: $max-width;
+  }
 }

@@ -7,6 +7,7 @@ import Navbar from "../Navbar/Navbar";
 import Footer from "../Footer/Footer";
 import {useDispatch} from "react-redux";
 import {startInnitEvents} from "../../store/actions/appSideActions";
+import PeerProvider from "../PeerProvider";
 
 
 const Layout = ({children}) => {
