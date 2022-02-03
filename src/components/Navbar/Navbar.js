@@ -15,13 +15,10 @@ const Navbar = () => {
         <nav className={classes.Navbar}>
             <div className={classes.Layout}>
                 <GoogleLogin
-                    clientId={"573625630766-qrp5bf8ke74oh9tk70ee81vak94tn8go.apps.googleusercontent.com"}
+                    clientId={"1073502971608-aqm4nlqrsd1khj4fvl491le32ghc2bpc.apps.googleusercontent.com"}
                     buttonText="Login"
                     onSuccess={responseGoogle}
-                    onFailure={(err) => {
-                        responseGoogle(err);
-                        return true
-                    }}
+                    onFailure={(err) => console.log(err)}
                 />
             </div>
         </nav>

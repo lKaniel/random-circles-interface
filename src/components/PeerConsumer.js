@@ -12,7 +12,7 @@ const PeerConsumer = () => {
             Consumer
             <input type={"text"} value={brokerId} onChange={e => setBrokerId(e.target.value)}/>
             <div>
-                {state?.message}
+                {isConnected ? state?.message : null}
             </div>
         </div>
     );
