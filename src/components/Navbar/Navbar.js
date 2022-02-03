@@ -1,12 +1,16 @@
-import React from 'react';
+import React, {useCallback} from 'react';
 import * as classes from "./Navbar.module.scss"
 import GoogleLogin from "react-google-login";
-
-const responseGoogle = (response) => {
-    console.log(response);
-}
+import {useDispatch} from "react-redux";
+import {loginStart} from "../../store/actions/loginActions";
 
 const Navbar = () => {
+    const dispatch = useDispatch();
+
+    const responseGoogle = useCallback((response) => {
+        dispatch(loginStart(response.tokenId))
+    },[dispatch])
+
     return (
         <nav className={classes.Navbar}>
             <div className={classes.Layout}>

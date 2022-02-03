@@ -8,3 +8,8 @@ export const CHANGE_MEDIA_QUERY = "CHECK_MEDIA_QUERY";
 
 export const SET_DARK_THEME = "SET_DARK_THEME";
 export const SET_LIGHT_THEME = "SET_LIGHT_THEME";
+
+
+export const LOGIN_START = "LOGIN_START"
+export const LOGIN_SUCCESS = "LOGIN_SUCCESS"
+export const LOGIN_ERROR = "LOGIN_ERROR"
