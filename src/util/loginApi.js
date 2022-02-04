@@ -1,7 +1,8 @@
 import axios from "./axios";
 
 export const getToken = async (googleIdToken) => {
-    return (await axios.post("/api/user", googleIdToken))?.headers?.authorization
+    const response = await axios.post("/api/user", googleIdToken);
+    return `Bearer ${response?.data}`
 }
 
 export const getUser = async (token) => {

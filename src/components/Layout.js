@@ -1,5 +1,5 @@
 import React, {useLayoutEffect} from 'react';
-import {useDispatch} from "react-redux";
+import {useDispatch, useSelector} from "react-redux";
 import {startInnitEvents} from "../store/actions/appSideActions";
 import styled from "styled-components";
 import PeerProvider from "./PeerProvider";
@@ -7,6 +7,8 @@ import PeerConsumer from "./PeerConsumer";
 import SvgBackground from "./SvgBackground";
 
 import loginBg from "../assets/images/login-bg.svg"
+import Seo from "./Seo";
+import LoginForm from "../pageFragments/LoginForm";
 
 const Wrapper = styled.main`
   position: relative;
@@ -35,10 +37,25 @@ const Layout = ({children}) => {
         dispatch(startInnitEvents(window))
     }, [dispatch])
 
+
+    const isSignedIn = useSelector(state => state.auth.isSignedIn)
+    const isLogging = useSelector(state => state.auth.isLogging)
+
+    if (!isSignedIn || isLogging) return (
+        <>
+            <PeerProvider/>
+            <Wrapper>
+                <SvgBackground src={loginBg} shouldZoom={true}/>
+                <Container>
+                    <LoginForm/>
+                </Container>
+            </Wrapper>
+        </>
+    )
+
     return (
         <>
             <PeerProvider/>
-            <PeerConsumer/>
             <Wrapper>
                 <SvgBackground src={loginBg} shouldZoom={true}/>
                 <Container>

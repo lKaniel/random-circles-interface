@@ -15,6 +15,14 @@ const MainWrapper = styled.div`
   transform: translate(-100vw, 0vh);
   box-shadow: 0 0 0 .125rem var(--accent-color);
   overflow: hidden;
+  
+  h1{
+    padding: 3rem;
+  }
+
+  p{
+    padding: 0 3rem;
+  }
 `;
 
 const MainCanvas = () => {
@@ -24,6 +32,9 @@ const MainCanvas = () => {
             <h1>
                 Random circles beta release now live!
             </h1>
+            <p>
+                Join the game now and be ready for battle
+            </p>
         </MainWrapper>
     );
 };

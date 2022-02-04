@@ -38,6 +38,7 @@ const LoginForm = () => {
     if (isLogging) return (
         <LoginWrapper>
             <LoginContainer>
+                <AuthButton visible={false}/>
                 <Info>
                     Loading...
                 </Info>

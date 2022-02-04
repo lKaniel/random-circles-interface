@@ -31,7 +31,7 @@ const Button = styled.button`
   }
 `
 
-const AuthButton = () => {
+const AuthButton = ({visible = true}) => {
 
     const dispatch = useDispatch();
 
@@ -46,9 +46,10 @@ const AuthButton = () => {
             buttonText="Login"
             onSuccess={responseGoogle}
             onFailure={(err) => console.log(err)}
-            render={renderProps => (
+            render={renderProps => visible ? (
                 <Button onClick={renderProps.onClick} disabled={renderProps.disabled}>Login</Button>
-            )}
+            ) : null}
+            // isSignedIn={true}
         />
     );
 };

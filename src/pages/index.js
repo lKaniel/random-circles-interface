@@ -20,16 +20,6 @@ const MainWrapper = styled.section`
 `;
 
 export default function Home() {
-    const isSignedIn = useSelector(state => state.auth.isSignedIn)
-    const isLogging = useSelector(state => state.auth.isLogging)
-
-    if (!isSignedIn || isLogging) return (
-        <>
-            <Seo title={"home"}/>
-            <LoginForm/>
-        </>
-    )
-
     return (
         <>
             <Seo title={"home"}/>

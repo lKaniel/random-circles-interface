@@ -42,7 +42,8 @@ export default function loginReducer(state = initialState, action) {
             console.log(action.error)
             return {
                 ...state,
-                isLogging: false
+                isLogging: false,
+                isSignedIn: false,
             }
         }
         default:
