@@ -3,7 +3,7 @@ import styled from "styled-components";
 
 const FriendsWrapper = styled.div`
   position: relative;
-  border-radius: 1rem 4rem 1rem;
+  border-radius: 1rem 4rem 4rem;
   background: var(--accent3-color);
   box-shadow: -.125rem .125rem 0 var(--accent3-color) inset;
   width: 100%;
@@ -33,8 +33,8 @@ const FriendsList = styled.div`
   width: 100%;
   height: 100%;
   background: var(--dark-color);
-  border-radius: 1rem 4rem 1rem 0;
-  box-shadow: -.125rem .125rem 0 var(--accent3-color) inset;
+  border-radius: 1rem 4rem 4rem;
+  box-shadow: 0 0 0 .125rem var(--accent3-color) inset;
 `;
 
 const Friends = () => {

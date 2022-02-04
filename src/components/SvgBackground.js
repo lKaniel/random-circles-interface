@@ -24,11 +24,11 @@ const Image = styled.div`
   }
 `;
 
-const SvgBackground = ({src}) => {
+const SvgBackground = ({src, shouldZoom = false}) => {
     const isSignedIn = useSelector(state => state.auth.isSignedIn)
     const isLogging = useSelector(state => state.auth.isLogging)
 
-    const cls =  isSignedIn ? "LoggedIn" : isLogging ? "LoggingIn" : "";
+    const cls =  shouldZoom ? isSignedIn ? "LoggedIn" : isLogging ? "LoggingIn" : "" : "";
 
     return (
         <Image>

@@ -40,7 +40,7 @@ const Layout = ({children}) => {
             <PeerProvider/>
             <PeerConsumer/>
             <Wrapper>
-                <SvgBackground src={loginBg}/>
+                <SvgBackground src={loginBg} shouldZoom={true}/>
                 <Container>
                     {children}
                 </Container>
