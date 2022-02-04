@@ -38,7 +38,7 @@ const Account = styled.div`
   position: relative;
   width: 100%;
   height: 5rem;
-  padding-left: 1rem;
+  padding-left: 2rem;
   margin-bottom: 1rem;
   display: flex;
   align-items: center;

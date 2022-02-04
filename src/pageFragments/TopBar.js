@@ -6,7 +6,6 @@ const Top = styled.nav`
   position: relative;
   grid-column: 1/span 2;
   display: flex;
-  margin: 1rem;
 `;
 
 const Menu = styled.div`
