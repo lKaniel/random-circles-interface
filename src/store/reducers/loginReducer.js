@@ -1,7 +1,8 @@
-import {LOGIN_ERROR, GOOGLE_LOGIN_SUCCESS, LOGIN_SUCCESS, LOGIN_START} from "../actions/actionTypes";
+import {LOGIN_ERROR, GOOGLE_LOGIN_SUCCESS, LOGIN_SUCCESS, LOGIN_START, LOAD_IMAGE} from "../actions/actionTypes";
 
 const initialState = {
     token: "",
+    imageUrl: "",
     isLogging: false,
     isSignedIn: false,
     user: {
@@ -29,6 +30,12 @@ export default function loginReducer(state = initialState, action) {
                 user: action.user,
                 isSignedIn: true,
                 isLogging: false
+            }
+        }
+        case LOAD_IMAGE:{
+            return {
+                ...state,
+                imageUrl: action.imageUrl
             }
         }
         case LOGIN_ERROR:{

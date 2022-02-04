@@ -2,32 +2,89 @@ import React from 'react';
 import styled from "styled-components";
 import AuthButton from "./AuthButton";
 import {useSelector} from "react-redux";
-import {CogOutline, DiscOutline, MedalOutline} from "react-ionicons";
+import { DiscOutline, MedalOutline, SnowOutline} from "react-ionicons";
 
 const StyledProfile = styled.nav`
-  position: fixed;
-  width: 20rem;
-  height: 6rem;
+  --profileColor: var(--accent-color);
+  --itemShadowColor: var(--accent-color-20);
+  --itemFontColor: var(--dark-color-20);
+  --transition: background .2s ease-in-out, box-shadow .2s ease-in-out, color .2s ease-in-out;
+  
+  position: relative;
+  width: 22rem;
+  height: 8rem;
   margin: 1rem;
   border-radius: 1rem 4rem 1rem;
   background: var(--dark-color);
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 1rem;
+  //padding: 1rem;
   z-index: 999;
   user-select: none;
+  box-shadow: .125rem -.125rem 0 var(--accent-color);
+  transition: var(--transition);
+  
+  :hover{
+    --profileColor: var(--dark-color);
+    --itemShadowColor: var(--accent-color);
+    --itemFontColor: var(--light-color);
+    background: var(--accent-color);
+    cursor: pointer;
+  }
 `;
 
-const Name = styled.div`
+const Info = styled.div`
   position: relative;
-  color: var(--accent-color);
-  font-size: 2rem;
+  color: var(--profileColor);
   width: 100%;
   height: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
+  font-size: 2rem;
+  transition: var(--transition);
+`;
+
+const Account = styled.div`
+  position: relative;
+  width: 100%;
+  height: 5rem;
+  padding-left: 1rem;
+  margin-bottom: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+`;
+
+const Name = styled.div`
+  position: relative;
+  color: var(--profileColor);
+  font-size: 1.5rem;
+  transition: var(--transition);
+`;
+
+const Icon = styled.div`
+  position: relative;
+  height: 100%;
+  aspect-ratio: 1;
+  border: .0625rem solid var(--accent-color);
+  box-shadow: .0625rem -.0625rem 0 var(--accent-color);
+  overflow: hidden;
+  background: var(--profileColor);
+  border-radius: 1rem 2rem 1rem;
+  left: 0;
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: var(--transition);
+  
+  img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
 `;
 
 const Points = styled.div`
@@ -44,8 +101,8 @@ const Points = styled.div`
 `;
 
 const Point = styled.div`
-  background: var(--accent-color);
-  color: black;
+  background: var(--profileColor);
+  color: var(--itemFontColor);
   font-size: 1rem;
   width: 6rem;
   height: 100%;
@@ -56,17 +113,15 @@ const Point = styled.div`
   border-radius: 1rem 2rem 1rem;
   box-sizing: border-box;
   padding: 0 1rem;
-  transition: transform .1s ease-in-out;
-  
-  .icon{
+  box-shadow: .125rem -.125rem 0 var(--itemShadowColor);
+  transition: var(--transition);
+
+  .icon {
     width: 1.2rem;
     height: 1.2rem;
-    color: black;
+    color: var(--itemFontColor);
     display: flex;
-  }
-  
-  &:hover{
-    transform: scale(1.1);
+    transition: var(--transition);
   }
 `
 
@@ -75,13 +130,13 @@ const Profile = () => {
     const isLogging = useSelector(state => state.auth.isLogging)
     const isSignedIn = useSelector(state => state.auth.isSignedIn)
     const user = useSelector(state => state.auth.user)
-    console.log(user)
+    const imageUrl = useSelector(state => state.auth.imageUrl)
 
     if (isLogging) return (
         <StyledProfile>
-            <Name>
+            <Info>
                 Loading...
-            </Name>
+            </Info>
         </StyledProfile>
     );
 
@@ -101,7 +156,7 @@ const Profile = () => {
                     {user.coins}
                 </Point>
                 <Point>
-                    <CogOutline
+                    <SnowOutline
                         cssClasses={"icon"}
                     />
                     {user.crystals}
@@ -113,9 +168,14 @@ const Profile = () => {
                     {user.rating}
                 </Point>
             </Points>
-            <Name>
-                {user?.username}
-            </Name>
+            <Account>
+                <Icon>
+                    {imageUrl !== "" ? <img src={imageUrl} alt={""}/> : null}
+                </Icon>
+                <Name>
+                    {user?.username}
+                </Name>
+            </Account>
         </StyledProfile>
     )
 };

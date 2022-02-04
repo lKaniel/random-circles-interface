@@ -1,4 +1,4 @@
-import {LOGIN_ERROR, LOGIN_START, GOOGLE_LOGIN_SUCCESS, LOGIN_SUCCESS} from "./actionTypes";
+import {LOGIN_ERROR, LOGIN_START, GOOGLE_LOGIN_SUCCESS, LOGIN_SUCCESS, LOAD_IMAGE} from "./actionTypes";
 
 export function loginStart(googleIdToken){
     return{
@@ -25,5 +25,12 @@ export function loginError(error){
     return{
         type: LOGIN_ERROR,
         error
+    }
+}
+
+export function loadImage(imageUrl){
+    return{
+        type: LOAD_IMAGE,
+        imageUrl
     }
 }

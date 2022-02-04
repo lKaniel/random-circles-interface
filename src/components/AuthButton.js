@@ -1,7 +1,7 @@
 import React, {useCallback} from 'react';
 import GoogleLogin from "react-google-login";
 import {useDispatch} from "react-redux";
-import {loginStart} from "../store/actions/loginActions";
+import {loadImage, loginStart} from "../store/actions/loginActions";
 import styled from "styled-components";
 
 const Button = styled.button`
@@ -17,8 +17,8 @@ const Button = styled.button`
   color: var(--accent-color);
   cursor: pointer;
   padding: 1rem;
-  border-radius: 1rem 3rem 1rem;
-  box-shadow: 0 0 0 .1rem var(--accent-color);
+  border-radius: 1rem 4rem 1rem;
+  //box-shadow: 0 0 0 .1rem var(--accent-color);
   transition: background-color .1s ease-in-out, color .1s ease-in-out, filter .1s ease-in-out;
 
   :hover {
@@ -36,7 +36,8 @@ const AuthButton = () => {
     const dispatch = useDispatch();
 
     const responseGoogle = useCallback((response) => {
-        dispatch(loginStart(response.tokenId))
+        dispatch(loginStart(response?.tokenId))
+        dispatch(loadImage(response?.profileObj?.imageUrl))
     }, [dispatch])
 
     return (

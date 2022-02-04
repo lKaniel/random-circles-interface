@@ -4,26 +4,30 @@ body {
   overflow-x: hidden;
 }
 
-html {
+* {
   scroll-behavior: smooth;
   scrollbar-width: normal;
   scrollbar-color: var(--dark-color) var(--light-color);
 }
 
-body::-webkit-scrollbar {
+body{
+  background: var(--dark-color-20);
+}
+
+*::-webkit-scrollbar {
   width: 0.9375rem;
 }
 
-body::-webkit-scrollbar-thumb {
+*::-webkit-scrollbar-thumb {
   background: var(--dark-color);
   border-radius: .5rem;
   border: .2rem solid var(--light-color);
 }
 
-body::-webkit-scrollbar-thumb:hover {
+*::-webkit-scrollbar-thumb:hover {
   background: var(--accent1-color);
 }
 
-body::-webkit-scrollbar-track {
+*::-webkit-scrollbar-track {
   background: var(--light-color);
 }

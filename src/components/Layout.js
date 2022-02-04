@@ -11,7 +11,9 @@ import loginBg from "../assets/images/login-bg.svg"
 const Wrapper = styled.main`
   position: relative;
   width: 100vw;
+  height: 100vh;
   background: var(--dark-color-20);
+  overflow: hidden;
   overflow-x: hidden;
   z-index: 1;
 `;
@@ -19,7 +21,7 @@ const Wrapper = styled.main`
 const Container = styled.section`
   position: relative;
   width: 100%;
-  min-height: 100vh;
+  height: 100vh;
   margin: auto;
   z-index: 10;
 `;
