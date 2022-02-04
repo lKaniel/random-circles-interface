@@ -49,7 +49,6 @@ const AuthButton = () => {
             render={renderProps => (
                 <Button onClick={renderProps.onClick} disabled={renderProps.disabled}>Login</Button>
             )}
-            isSignedIn={true}
         />
     );
 };

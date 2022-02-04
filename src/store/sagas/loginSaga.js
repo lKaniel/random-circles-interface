@@ -7,7 +7,9 @@ function* tokenWatcher() {
     yield takeEvery(LOGIN_START, function* ({googleIdToken}) {
         let apiToken = ""
         try {
+            console.log(googleIdToken)
             apiToken = yield getToken(googleIdToken)
+            console.log(apiToken)
             yield put(googleLoginSuccess(apiToken))
         } catch (e) {
             yield put(loginError(e))
@@ -18,7 +20,9 @@ function* tokenWatcher() {
 function* userWatcher() {
     yield takeEvery(GOOGLE_LOGIN_SUCCESS, function* ({token}) {
         try {
+            console.log(token)
             const user = yield getUser(token)
+            console.log(user)
             yield put(loginSuccess(user.data))
         } catch (e) {
             yield put(loginError(e))
