@@ -2,14 +2,14 @@ import React from 'react';
 import styled from "styled-components";
 import AuthButton from "./AuthButton";
 import {useSelector} from "react-redux";
-import { DiscOutline, MedalOutline, SnowOutline} from "react-ionicons";
+import {DiscOutline, MedalOutline, SnowOutline} from "react-ionicons";
 
 const StyledProfile = styled.nav`
   --profileColor: var(--accent-color);
   --itemShadowColor: var(--accent-color-20);
   --itemFontColor: var(--dark-color-20);
   --transition: background .2s ease-in-out, box-shadow .2s ease-in-out, color .2s ease-in-out;
-  
+
   position: relative;
   width: 22rem;
   height: 8rem;
@@ -24,26 +24,14 @@ const StyledProfile = styled.nav`
   user-select: none;
   box-shadow: .125rem -.125rem 0 var(--accent-color);
   transition: var(--transition);
-  
-  :hover{
+
+  :hover {
     --profileColor: var(--dark-color);
     --itemShadowColor: var(--accent-color);
     --itemFontColor: var(--light-color);
     background: var(--accent-color);
     cursor: pointer;
   }
-`;
-
-const Info = styled.div`
-  position: relative;
-  color: var(--profileColor);
-  width: 100%;
-  height: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 2rem;
-  transition: var(--transition);
 `;
 
 const Account = styled.div`
@@ -79,8 +67,8 @@ const Icon = styled.div`
   align-items: center;
   justify-content: center;
   transition: var(--transition);
-  
-  img{
+
+  img {
     width: 100%;
     height: 100%;
     object-fit: cover;
@@ -126,25 +114,11 @@ const Point = styled.div`
 `
 
 const Profile = () => {
-
-    const isLogging = useSelector(state => state.auth.isLogging)
     const isSignedIn = useSelector(state => state.auth.isSignedIn)
     const user = useSelector(state => state.auth.user)
     const imageUrl = useSelector(state => state.auth.imageUrl)
 
-    if (isLogging) return (
-        <StyledProfile>
-            <Info>
-                Loading...
-            </Info>
-        </StyledProfile>
-    );
-
-    if (!isSignedIn) return (
-        <StyledProfile>
-            <AuthButton/>
-        </StyledProfile>
-    );
+    if (!isSignedIn) return null
 
     return (
         <StyledProfile>

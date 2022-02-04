@@ -18,7 +18,7 @@ const Button = styled.button`
   cursor: pointer;
   padding: 1rem;
   border-radius: 1rem 4rem 1rem;
-  //box-shadow: 0 0 0 .1rem var(--accent-color);
+  box-shadow: 0 0 0 .1rem var(--accent-color);
   transition: background-color .1s ease-in-out, color .1s ease-in-out, filter .1s ease-in-out;
 
   :hover {
@@ -49,7 +49,6 @@ const AuthButton = () => {
             render={renderProps => (
                 <Button onClick={renderProps.onClick} disabled={renderProps.disabled}>Login</Button>
             )}
-            isSignedIn={true}
         />
     );
 };
