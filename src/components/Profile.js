@@ -4,8 +4,8 @@ import {useSelector} from "react-redux";
 import {DiscOutline, MedalOutline, SnowOutline} from "react-ionicons";
 
 const StyledProfile = styled.nav`
-  --profileColor: var(--accent-color);
-  --itemShadowColor: var(--accent-color-20);
+  --profileColor: var(--accent3-color);
+  --itemShadowColor: var(--accent3-color-20);
   --itemFontColor: var(--dark-color-20);
   --transition: background .2s ease-in-out, box-shadow .2s ease-in-out, color .2s ease-in-out;
 
@@ -27,9 +27,9 @@ const StyledProfile = styled.nav`
 
   &:hover {
     --profileColor: var(--dark-color);
-    --itemShadowColor: var(--accent-color);
-    --itemFontColor: var(--light-color);
-    background: var(--accent-color);
+    --itemShadowColor: var(--accent3-color);
+    --itemFontColor: var(--accent3-color);
+    background: var(--accent3-color);
     cursor: pointer;
   }
 `;
@@ -58,8 +58,8 @@ const Icon = styled.div`
   position: relative;
   height: 100%;
   aspect-ratio: 1;
-  border: .0625rem solid var(--accent-color);
-  box-shadow: .0625rem -.0625rem 0 var(--accent-color);
+  border: .0625rem solid var(--accent3-color);
+  box-shadow: .0625rem -.0625rem 0 var(--accent3-color);
   overflow: hidden;
   background: var(--profileColor);
   border-radius: 1rem 2rem 1rem;
@@ -124,19 +124,28 @@ const Profile = () => {
     return (
         <StyledProfile>
             <Points>
-                <Point style={{"--order": "4"}}>
+                <Point style={{
+                    "--order": "4",
+                    // background: "var(--accent3-color)"
+                }}>
                     <DiscOutline
                         cssClasses={"icon"}
                     />
                     {user.coins}
                 </Point>
-                <Point style={{"--order": "3"}}>
+                <Point style={{
+                    "--order": "3",
+                    // background: "var(--accent2-color)"
+                }}>
                     <SnowOutline
                         cssClasses={"icon"}
                     />
                     {user.crystals}
                 </Point>
-                <Point style={{"--order": "2"}}>
+                <Point style={{
+                    "--order": "2",
+                    // background: "var(--accent1-color)"
+                }}>
                     <MedalOutline
                         cssClasses={"icon"}
                     />
