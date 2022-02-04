@@ -27,3 +27,26 @@
     font-size: 1vw;
   }
 }
+
+@keyframes initLeft {
+  0% {
+    transform: translate(-100vw, 0vh);
+  }
+  100% {
+    transform: translate(0px, 0px);
+  }
+}
+
+@keyframes initLeftWithStretch {
+  0% {
+    transform: translate(-100vw, 0vh);
+    width: 22rem;
+  }
+  50% {
+    transform: translate(0px, 0px);
+  }
+  100% {
+    transform: translate(0px, 0px);
+    width: 100%;
+  }
+}

@@ -33,7 +33,7 @@ const Layout = ({children}) => {
 
     useLayoutEffect(() => {
         dispatch(startInnitEvents(window))
-    }, [])
+    }, [dispatch])
 
     return (
         <>

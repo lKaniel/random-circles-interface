@@ -1,6 +1,5 @@
 import React from 'react';
 import styled from "styled-components";
-import AuthButton from "./AuthButton";
 import {useSelector} from "react-redux";
 import {DiscOutline, MedalOutline, SnowOutline} from "react-ionicons";
 
@@ -13,7 +12,6 @@ const StyledProfile = styled.nav`
   position: relative;
   width: 22rem;
   height: 8rem;
-  margin: 1rem;
   border-radius: 1rem 4rem 1rem;
   background: var(--dark-color);
   display: flex;
@@ -22,10 +20,12 @@ const StyledProfile = styled.nav`
   //padding: 1rem;
   z-index: 999;
   user-select: none;
-  box-shadow: .125rem -.125rem 0 var(--accent-color);
+  box-shadow: -.125rem .125rem 0 var(--accent-color) inset;
   transition: var(--transition);
+  animation: initLeft .5s ease-in-out forwards;
+  transform: translate(-100vw, 0vh);
 
-  :hover {
+  &:hover {
     --profileColor: var(--dark-color);
     --itemShadowColor: var(--accent-color);
     --itemFontColor: var(--light-color);
@@ -43,6 +43,8 @@ const Account = styled.div`
   display: flex;
   align-items: center;
   gap: 1rem;
+  animation: initLeft .5s ease-in-out .1s forwards;
+  transform: translate(-100vw, 0vh);
 `;
 
 const Name = styled.div`
@@ -103,6 +105,8 @@ const Point = styled.div`
   padding: 0 1rem;
   box-shadow: .125rem -.125rem 0 var(--itemShadowColor);
   transition: var(--transition);
+  animation: initLeft .5s ease-in-out calc(.1s * var(--order)) forwards;
+  transform: translate(-100vw, 0vh);
 
   .icon {
     width: 1.2rem;
@@ -114,28 +118,25 @@ const Point = styled.div`
 `
 
 const Profile = () => {
-    const isSignedIn = useSelector(state => state.auth.isSignedIn)
     const user = useSelector(state => state.auth.user)
     const imageUrl = useSelector(state => state.auth.imageUrl)
-
-    if (!isSignedIn) return null
 
     return (
         <StyledProfile>
             <Points>
-                <Point>
+                <Point style={{"--order": "4"}}>
                     <DiscOutline
                         cssClasses={"icon"}
                     />
                     {user.coins}
                 </Point>
-                <Point>
+                <Point style={{"--order": "3"}}>
                     <SnowOutline
                         cssClasses={"icon"}
                     />
                     {user.crystals}
                 </Point>
-                <Point>
+                <Point style={{"--order": "2"}}>
                     <MedalOutline
                         cssClasses={"icon"}
                     />
