@@ -7,7 +7,7 @@ export const getToken = async (googleIdToken) => {
 export const getUser = async (token) => {
     return await axios.get("/api/user/profile", {
         headers: {
-            Authorization: token
+            "Authorization": token
         }
     })
 }
