@@ -16,6 +16,7 @@ const StyledProfile = styled.nav`
   justify-content: center;
   padding: 1rem;
   z-index: 999;
+  user-select: none;
 `;
 
 const Name = styled.div`
@@ -51,16 +52,21 @@ const Point = styled.div`
   display: flex;
   align-items: center;
   gap: .3rem;
-  font-weight: 900;
+  font-weight: 400;
   border-radius: 1rem 2rem 1rem;
   box-sizing: border-box;
   padding: 0 1rem;
+  transition: transform .1s ease-in-out;
   
   .icon{
     width: 1.2rem;
     height: 1.2rem;
     color: black;
     display: flex;
+  }
+  
+  &:hover{
+    transform: scale(1.1);
   }
 `
 
