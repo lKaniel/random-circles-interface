@@ -2,11 +2,13 @@
   font-size: 0.82vw;
 
   --light-color: #FFFFFA;
-  --dark-color: #515052;
+  --dark-color: #3D3B41;
   --dark-color-20: #333138;
   --accent-color: #998FC7;
   --accent1-color: #F87060;
   --accent2-color: #709255;
+  --accent3-color: #EEBA0B;
+  --accent4-color: #1982C4;
 
   --scrollbar-track: #DEDAE0;
   --scrollbar-track-hover: #85858a;

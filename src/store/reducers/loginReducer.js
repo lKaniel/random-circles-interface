@@ -1,7 +1,9 @@
-import {LOGIN_ERROR, GOOGLE_LOGIN_SUCCESS, LOGIN_SUCCESS} from "../actions/actionTypes";
+import {LOGIN_ERROR, GOOGLE_LOGIN_SUCCESS, LOGIN_SUCCESS, LOGIN_START} from "../actions/actionTypes";
 
 const initialState = {
     token: "",
+    isLogging: false,
+    isSignedIn: false,
     user: {
 
     }
@@ -9,6 +11,12 @@ const initialState = {
 
 export default function loginReducer(state = initialState, action) {
     switch (action.type) {
+        case LOGIN_START:{
+            return {
+                ...state,
+                isLogging: true
+            }
+        }
         case GOOGLE_LOGIN_SUCCESS:{
             return {
                 ...state,
@@ -16,15 +24,19 @@ export default function loginReducer(state = initialState, action) {
             }
         }
         case LOGIN_SUCCESS:{
-            console.log(action.user)
             return {
                 ...state,
-                user: action.user
+                user: action.user,
+                isSignedIn: true,
+                isLogging: false
             }
         }
         case LOGIN_ERROR:{
             console.log(action.error)
-            return state
+            return {
+                ...state,
+                isLogging: false
+            }
         }
         default:
             return state;

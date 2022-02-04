@@ -20,18 +20,19 @@ const Button = styled.button`
   border-radius: 1rem 3rem 1rem;
   box-shadow: 0 0 0 .1rem var(--accent-color);
   transition: background-color .1s ease-in-out, color .1s ease-in-out, filter .1s ease-in-out;
-  
-  :hover{
+
+  :hover {
     background: var(--accent-color);
     color: var(--dark-color-20);
   }
-  
-  :active{
+
+  :active {
     filter: brightness(.8);
   }
 `
 
 const AuthButton = () => {
+
     const dispatch = useDispatch();
 
     const responseGoogle = useCallback((response) => {
