@@ -38,6 +38,7 @@ const AuthButton = ({visible = true}) => {
     const responseGoogle = useCallback((response) => {
         dispatch(loginStart(response?.tokenId))
         dispatch(loadImage(response?.profileObj?.imageUrl))
+        console.log("GOOGLE USER TOKEN", response?.tokenId)
     }, [dispatch])
 
     return (
@@ -49,7 +50,7 @@ const AuthButton = ({visible = true}) => {
             render={renderProps => visible ? (
                 <Button onClick={renderProps.onClick} disabled={renderProps.disabled}>Login</Button>
             ) : null}
-            // isSignedIn={true}
+            isSignedIn={true}
         />
     );
 };
