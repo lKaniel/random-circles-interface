@@ -1,11 +1,13 @@
 import {call, spawn, all} from "redux-saga/effects";
 import {eventListenerSaga} from "./eventListenerSaga";
 import {loginSaga} from "./loginSaga";
+import {lobbySaga} from "./lobbySaga";
 
 export default function* rootSaga() {
     const sagas = [
         eventListenerSaga,
-        loginSaga
+        loginSaga,
+        lobbySaga
     ]
 
     const retrySagas = yield sagas.map(saga => (

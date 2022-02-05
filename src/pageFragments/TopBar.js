@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from "styled-components";
 import Profile from "../components/Profile";
+import {Link} from "gatsby";
 
 const Top = styled.nav`
   position: relative;
@@ -56,7 +57,20 @@ const PlayButton = styled.button`
   
   :hover{
     background: var(--accent3-color);
-    color: var(--dark-color-20);
+    a{
+      color: var(--dark-color-20);
+    }
+  }
+  
+  a{
+    color: var(--accent3-color);
+    text-decoration: none;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
   }
 `
 
@@ -80,7 +94,9 @@ const TopBar = () => {
                     </MenuElement>
                 </Menu>
                 <PlayButton>
-                    Play
+                    <Link to={"/lobby"}>
+                        Play
+                    </Link>
                 </PlayButton>
             </TopWrapper>
         </Top>
