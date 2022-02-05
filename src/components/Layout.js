@@ -3,12 +3,11 @@ import {useDispatch, useSelector} from "react-redux";
 import {startInnitEvents} from "../store/actions/appSideActions";
 import styled from "styled-components";
 import PeerProvider from "./PeerProvider";
-import PeerConsumer from "./PeerConsumer";
 import SvgBackground from "./SvgBackground";
 
 import loginBg from "../assets/images/login-bg.svg"
-import Seo from "./Seo";
 import LoginForm from "../pageFragments/LoginForm";
+import TopBar from "../pageFragments/TopBar";
 
 const Wrapper = styled.main`
   position: relative;
@@ -59,6 +58,7 @@ const Layout = ({children}) => {
             <Wrapper>
                 <SvgBackground src={loginBg} shouldZoom={true}/>
                 <Container>
+                    <TopBar/>
                     {children}
                 </Container>
             </Wrapper>

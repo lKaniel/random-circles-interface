@@ -1,11 +1,7 @@
 import React from "react"
 import Seo from "../components/Seo";
-import Profile from "../components/Profile";
-import LoginForm from "../pageFragments/LoginForm";
-import {useSelector} from "react-redux";
 import styled from "styled-components";
-import TopBar from "../pageFragments/TopBar";
-import Friends from "../pageFragments/Friends";
+import SideBar from "../components/SideBar";
 import MainCanvas from "../pageFragments/MainCanvas";
 
 const MainWrapper = styled.section`
@@ -24,8 +20,7 @@ export default function Home() {
         <>
             <Seo title={"home"}/>
             <MainWrapper>
-                <TopBar/>
-                <Friends/>
+                <SideBar title={"Friends"}/>
                 <MainCanvas/>
             </MainWrapper>
         </>

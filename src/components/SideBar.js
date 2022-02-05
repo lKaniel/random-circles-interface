@@ -4,8 +4,8 @@ import styled from "styled-components";
 const FriendsWrapper = styled.div`
   position: relative;
   border-radius: 1rem 4rem 4rem;
-  background: var(--accent3-color);
-  box-shadow: -.125rem .125rem 0 var(--accent3-color) inset;
+  background: var(--accent-color);
+  box-shadow: -.125rem .125rem 0 var(--accent-color) inset;
   width: 100%;
   height: 100%;
   grid-row: 2;
@@ -20,7 +20,7 @@ const FriendsWrapper = styled.div`
 const FriendsTop = styled.div`
   width: 100%;
   height: 6rem;
-  background: var(--accent3-color);
+  background: var(--accent-color);
   color: var(--dark-color-20);
   box-sizing: border-box;
   padding: 1rem 2rem;
@@ -34,20 +34,46 @@ const FriendsList = styled.div`
   height: 100%;
   background: var(--dark-color);
   border-radius: 1rem 4rem 4rem;
-  box-shadow: 0 0 0 .125rem var(--accent3-color) inset;
+  box-shadow: 0 0 0 .125rem var(--accent-color) inset;
+  overflow: hidden;
 `;
 
-const Friends = () => {
+const UserTab = styled.div`
+  width: 100%;
+  padding: 2rem;
+  box-sizing: border-box;
+  color: var(--accent-color);
+  font-size: 1.5rem;
+
+  
+  &:hover{
+    background: var(--accent-color);
+    filter: brightness(.9);
+    color: var(--dark-color-20);
+    cursor: pointer;
+  }
+`;
+
+const SideBar = ({title, users}) => {
+
+    console.log(users)
+
+    const parsedUsers = users.map((user, index) => (
+        <UserTab key={index}>
+            {user.username}
+        </UserTab>
+    ))
+
     return (
         <FriendsWrapper>
             <FriendsTop>
-                Friends
+                {title}
             </FriendsTop>
             <FriendsList>
-
+                {parsedUsers}
             </FriendsList>
         </FriendsWrapper>
     );
 };
 
-export default Friends;
+export default SideBar;

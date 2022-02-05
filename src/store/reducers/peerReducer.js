@@ -1,4 +1,9 @@
-import {UPDATE_PEER_PROVIDER_DATA, UPDATE_PEER_PROVIDER_STATUS, UPDATE_PEER_USERNAME} from "../actions/actionTypes";
+import {
+    UPDATE_PEER_PROVIDER_DATA,
+    UPDATE_PEER_PROVIDER_STATUS,
+    UPDATE_PEER_PROVIDER_USERS,
+    UPDATE_PEER_USERNAME
+} from "../actions/actionTypes";
 
 const initialState = {
     provider: {
@@ -6,7 +11,9 @@ const initialState = {
         connections: [],
         error: "",
         data: {
-            message: "Hello"
+            users:[
+
+            ]
         }
     }
 };
@@ -30,6 +37,19 @@ export default function peerReducer(state = initialState, action) {
                 provider: {
                     ...state.provider,
                     data: action.data
+                }
+            }
+        }
+        case UPDATE_PEER_PROVIDER_USERS: {
+            console.log(action)
+            return {
+                ...state,
+                provider: {
+                    ...state.provider,
+                    data: {
+                        ...state.provider.data,
+                        users: action.users
+                    }
                 }
             }
         }

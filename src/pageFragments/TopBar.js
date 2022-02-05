@@ -4,9 +4,13 @@ import Profile from "../components/Profile";
 import {Link} from "gatsby";
 
 const Top = styled.nav`
-  position: relative;
-  grid-column: 1/span 2;
+  //grid-column: 1/span 2;
   display: flex;
+  position: fixed;
+  top: 0;
+  left: 0;
+  margin: 1rem;
+  width: calc(100% - 2rem);
 `;
 
 const TopWrapper = styled.div`

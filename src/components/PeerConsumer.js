@@ -1,8 +1,15 @@
-import React, {useState} from 'react';
+import React, {useEffect, } from 'react';
 import {useReceivePeerState} from "react-peer";
+import {useDispatch} from "react-redux";
+import {updatePeerProviderData,} from "../store/actions/peerActions";
 
-const PeerConsumer = () => {
-    const [state, isConnected, error] = useReceivePeerState("");
+const PeerConsumer = ({brokerId}) => {
+    const [state, isConnected, error] = useReceivePeerState(brokerId);
+
+    const dispatch = useDispatch()
+    useEffect(() => {
+        dispatch(updatePeerProviderData(state))
+    }, [state, dispatch])
 
     return null;
 };
