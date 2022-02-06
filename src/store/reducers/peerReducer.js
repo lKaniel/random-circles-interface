@@ -4,6 +4,7 @@ import {
     UPDATE_PEER_PROVIDER_USERS,
     UPDATE_PEER_USERNAME
 } from "../actions/actionTypes";
+import {clearConnections, connectToPeer} from "../../util/peer";
 
 const initialState = {
     provider: {
@@ -41,7 +42,10 @@ export default function peerReducer(state = initialState, action) {
             }
         }
         case UPDATE_PEER_PROVIDER_USERS: {
-            console.log(action)
+            clearConnections()
+            action.users.forEach((user) => {
+                connectToPeer(user.peer_id)
+            })
             return {
                 ...state,
                 provider: {

@@ -56,9 +56,7 @@ const UserTab = styled.div`
 
 const SideBar = ({title, users}) => {
 
-    console.log(users)
-
-    const parsedUsers = users.map((user, index) => (
+    const parsedUsers = users?.map((user, index) => (
         <UserTab key={index}>
             {user.username}
         </UserTab>

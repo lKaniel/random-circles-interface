@@ -1,13 +1,12 @@
 import axios from "./axios";
 
-export const connectToLobby = async (brokerId, token) => {
-    const response = await axios.get(`/api/lobby/?peerId=${brokerId}`,{
+export const connectToLobby = async (token) => {
+    const response = await axios.get(`/api/lobby/`,{
         headers: {
             "Authorization": token
         }
     });
     return response.data
-    // const response2 = await axios.get(`http://localhost:4000/getuser/?username=${response.data.username}`);
 }
 
 export const leaveLobby = async (token) => {
@@ -16,6 +15,4 @@ export const leaveLobby = async (token) => {
             "Authorization": token
         }
     });
-    console.log(response)
-
 }

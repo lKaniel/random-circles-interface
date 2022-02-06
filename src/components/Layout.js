@@ -42,7 +42,7 @@ const Layout = ({children}) => {
 
     if (!isSignedIn || isLogging) return (
         <>
-            <PeerProvider/>
+            {/*<PeerProvider/>*/}
             <Wrapper>
                 <SvgBackground src={loginBg} shouldZoom={true}/>
                 <Container>
@@ -54,7 +54,7 @@ const Layout = ({children}) => {
 
     return (
         <>
-            <PeerProvider/>
+            {/*<PeerProvider/>*/}
             <Wrapper>
                 <SvgBackground src={loginBg} shouldZoom={true}/>
                 <Container>
