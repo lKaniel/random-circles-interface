@@ -1,7 +1,7 @@
 import axios from "./axios";
 
 export const connectToLobby = async (token) => {
-    const response = await axios.get(`/api/lobby/`,{
+    const response = await axios.get(`/api/v1/lobbies`,{
         headers: {
             "Authorization": token
         }
@@ -10,7 +10,7 @@ export const connectToLobby = async (token) => {
 }
 
 export const leaveLobby = async (token) => {
-    const response = await axios.post(`/api/lobby/cancel`,{},{
+    const response = await axios.post(`/api/v1/lobbies/cancel`,{},{
         headers: {
             "Authorization": token
         }

@@ -2,7 +2,8 @@ import {SET_LOBBY_INFO} from "../actions/actionTypes";
 
 const initialState = {
     filled: false,
-    users: []
+    users: [],
+    inLobby: true
 };
 
 export default function lobbyReducer(state = initialState, action) {

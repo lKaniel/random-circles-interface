@@ -1,4 +1,5 @@
 import {
+    ADD_PEER_PROVIDER_USER, REMOVE_PEER_PROVIDER_USER,
     UPDATE_PEER_PROVIDER_DATA,
     UPDATE_PEER_PROVIDER_STATUS,
     UPDATE_PEER_PROVIDER_USERS,
@@ -18,6 +19,20 @@ export function updatePeerProviderData(data) {
     return {
         type: UPDATE_PEER_PROVIDER_DATA,
         data
+    }
+}
+
+export function addPeerProviderUser(user) {
+    return {
+        type: ADD_PEER_PROVIDER_USER,
+        user
+    }
+}
+
+export function removePeerProviderUser(userId) {
+    return {
+        type: REMOVE_PEER_PROVIDER_USER,
+        userId
     }
 }
 

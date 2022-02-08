@@ -3,6 +3,7 @@ import {LOGIN_START, GOOGLE_LOGIN_SUCCESS} from "../actions/actionTypes";
 import {loginError, googleLoginSuccess, loginSuccess} from "../actions/loginActions";
 import {getToken, getUser} from "../../util/loginApi";
 import {innitPeer} from "../../util/peer";
+import {connectToLobby} from "../actions/lobbyActions";
 
 function* tokenWatcher() {
     yield takeEvery(LOGIN_START, function* ({googleIdToken}) {
@@ -21,7 +22,9 @@ function* userWatcher() {
         try {
             const user = yield getUser(token)
             yield put(loginSuccess(user.data))
-            yield innitPeer(user.data.peer_id)
+            yield innitPeer(user.data.peer_id, user.data.username, ()=>{
+                return put(connectToLobby())
+            })
         } catch (e) {
             yield put(loginError(e))
         }
