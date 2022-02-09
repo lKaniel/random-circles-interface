@@ -2,7 +2,6 @@ import React, {useLayoutEffect} from 'react';
 import {useDispatch, useSelector} from "react-redux";
 import {startInnitEvents} from "../store/actions/appSideActions";
 import styled from "styled-components";
-import PeerProvider from "./PeerProvider";
 import SvgBackground from "./SvgBackground";
 
 import loginBg from "../assets/images/login-bg.svg"

@@ -38,7 +38,6 @@ const AuthButton = ({visible = true}) => {
     const responseGoogle = useCallback((response) => {
         dispatch(loginStart(response?.tokenId))
         dispatch(loadImage(response?.profileObj?.imageUrl))
-        console.log("GOOGLE USER TOKEN", response?.tokenId)
     }, [dispatch])
 
     return (

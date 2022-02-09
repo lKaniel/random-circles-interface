@@ -40,7 +40,7 @@ const LeaveBtn = styled.button`
 `
 
 const Lobby = () => {
-    const users = useSelector(state => state.peer.provider.data.users)
+    const users = useSelector(state => state.peer.users)
 
     const dispatch = useDispatch()
 
