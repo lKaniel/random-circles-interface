@@ -24,7 +24,7 @@ function* innitPeerWatcher() {
             host: `evening-ridge-76087.herokuapp.com`,
             debug: 1,
             path: '/myapp',
-            port: "80"
+            port: ""
         });
         yield put(setPeer(peer))
 
