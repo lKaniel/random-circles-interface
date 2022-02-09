@@ -1,11 +1,5 @@
-import {
-    ADD_PEER_PROVIDER_USER, REMOVE_PEER_PROVIDER_USER, SET_PEER,
-    UPDATE_PEER_PROVIDER_DATA,
-    UPDATE_PEER_PROVIDER_STATUS,
-    UPDATE_PEER_PROVIDER_USERS,
-    UPDATE_PEER_USERNAME
-} from "../actions/actionTypes";
-import {clearConnections, connectToPeer} from "../../util/peer";
+import {SET_PEER} from "../actions/actionTypes";
+
 
 const initialState = {
     peer: undefined

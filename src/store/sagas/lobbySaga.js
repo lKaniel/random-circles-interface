@@ -1,8 +1,6 @@
 import {fork, put, takeEvery, select} from "redux-saga/effects";
 import {CONNECT_TO_LOBBY, LEAVE_LOBBY} from "../actions/actionTypes";
 import {connectToLobby, leaveLobby} from "../../util/lobbyApi";
-import {setLobbyInfo} from "../actions/lobbyActions";
-import {getUser} from "../../util/loginApi";
 import {connectToPeer} from "../actions/peerActions";
 
 function* connectWatcher() {

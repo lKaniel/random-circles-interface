@@ -1,9 +1,9 @@
-import {fork, put, select, takeEvery, delay, take} from "redux-saga/effects";
+import {fork, put, select, takeEvery, take} from "redux-saga/effects";
 import {
     CONNECT_TO_PEER,
     INNIT_PEER, PEER_CONNECTION_FROM_CLOSE, PEER_CONNECTION_FROM_OPEN, PEER_CONNECTION_TO_OPEN, PEER_PROVIDER_OPEN,
 } from "../actions/actionTypes";
-import {eventChannel, channel} from "redux-saga";
+import {channel} from "redux-saga";
 import {setPeer} from "../actions/peerActions";
 
 let connections = {}
@@ -20,7 +20,12 @@ function* innitPeerWatcher() {
     yield takeEvery(INNIT_PEER, function* ({peer_id, username}) {
         if (typeof navigator === "undefined") return
         const Peer = require("peerjs").default
-        const peer = new Peer(peer_id);
+        const peer = new Peer(peer_id, {
+            host: `evening-ridge-76087.herokuapp.com`,
+            debug: 1,
+            path: '/myapp',
+            port: "80"
+        });
         yield put(setPeer(peer))
 
         yield peer.on("open", (id) => redirectChannel.put({
@@ -46,7 +51,10 @@ function* innitConnectToPeerWatcher() {
         const myPeerId = yield select(state => state.auth.user.peer_id)
         const peer = yield select(state => state.peer.peer)
         if (peer_id === myPeerId) return null
+        console.log(peer_id)
         const conn = yield peer.connect(peer_id);
+        console.log("CONNECTED")
+        console.log(conn)
 
         conn.on("open", () => redirectChannel.put({
             type: PEER_CONNECTION_TO_OPEN,

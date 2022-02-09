@@ -1,7 +1,7 @@
-import {fork, put, select, takeEvery} from "redux-saga/effects";
+import {fork, select, takeEvery} from "redux-saga/effects";
 import {
     AUTHORIZE_PEER_USER,
-    LOGIN_START, PEER_CONNECTION_FROM_CLOSE,
+    PEER_CONNECTION_FROM_CLOSE,
     PEER_CONNECTION_FROM_OPEN, PEER_CONNECTION_TO_OPEN,
     PEER_PROVIDER_OPEN,
 } from "../actions/actionTypes";
@@ -29,6 +29,7 @@ function* peerConnectionFromCloseWatcher() {
 function* peerConnectionToWatcher() {
     yield takeEvery(PEER_CONNECTION_TO_OPEN, function* ({conn}) {
         const peer_id = yield select(state => state.auth.user.peer_id)
+        console.log(123)
         console.log("CONNECTED TO HOST")
         conn.send({
             type: AUTHORIZE_PEER_USER,
