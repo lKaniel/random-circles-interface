@@ -21,10 +21,10 @@ function* innitPeerWatcher() {
         if (typeof navigator === "undefined") return
         const Peer = require("peerjs").default
         const peer = new Peer(peer_id, {
-            host: `evening-ridge-76087.herokuapp.com`,
+            host: `45.9.191.152`,
             debug: 1,
-            path: '/myapp',
-            port: "",
+            path: '/',
+            port: "3000",
             proxied: true
         });
         yield put(setPeer(peer))
